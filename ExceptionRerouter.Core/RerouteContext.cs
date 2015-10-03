@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace ExceptionRerouter.Core
 {
-    public class ExceptionContext
+    public class RerouteContext
     {
         public Exception Exception { get; set; }
 

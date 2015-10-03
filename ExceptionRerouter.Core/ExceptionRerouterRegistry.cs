@@ -12,6 +12,6 @@ namespace ExceptionRerouter.Core
 
     public abstract class ExceptionRerouterRegistry<T> where T : Exception
     {
-        public abstract void OnException(ExceptionContext context);
+        public abstract void OnException(RerouteContext context);
     }
 }

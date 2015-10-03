@@ -101,9 +101,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\PageNotFound\Index.cshtml" />
+    <Content Include="Views\ProductNotFound\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ProductNotFoundController.cs" />
+    <Compile Include="Controllers\PageNotFoundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DemoExceptionRerouterRegistry.cs" />
     <Compile Include="Exceptions\PageNotFoundException.cs" />

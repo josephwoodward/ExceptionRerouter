@@ -9,18 +9,18 @@ namespace ExceptionRerouter.Demo
     {
         public DemoExceptionRerouterRegistry()
         {
-            OnException<ProductNotFoundException>().Go(GoToProductNotFound);
-            OnException<PageNotFoundException>().Go(GoToPageNotFound);
+            OnException<ProductNotFoundException>().RedirectTo(ProductNotFound);
+            OnException<PageNotFoundException>().RedirectTo(PageNotFound);
         }
 
-        private static RouteExecute GoToProductNotFound(ExceptionContext context)
+        private static RouteExecute ProductNotFound(RerouteContext context)
         {
-            return context.RerouteTo<HomeController>(x => x.Index()).WithStatusCode(HttpStatusCode.NotFound);
+            return context.RerouteTo<ProductNotFoundController>(x => x.Index()).WithStatusCode(HttpStatusCode.NotFound);
         }
 
-        private static RouteExecute GoToPageNotFound(ExceptionContext context)
+        private static RouteExecute PageNotFound(RerouteContext context)
         {
-            return context.RerouteTo<HomeController>(x => x.Index()).WithStatusCode(HttpStatusCode.NotFound);
+            return context.RerouteTo<PageNotFoundController>(x => x.Index()).WithStatusCode(HttpStatusCode.NotFound);
         }
     }
 }
