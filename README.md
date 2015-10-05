@@ -1,5 +1,5 @@
 # ExceptionRerouter
-A simple exception rerouting library for ASP.NET MVC.s....
+A simple exception rerouting library for ASP.NET MVC.
 
 Example:
 ```csharp
