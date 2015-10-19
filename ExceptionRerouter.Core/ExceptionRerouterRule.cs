@@ -10,6 +10,9 @@ namespace ExceptionRerouter.Core
 
         public void RedirectTo(Func<RerouteContext, RouteExecute> action)
         {
+            var config = new RerouteSettingContext();
+
+            action(new RerouteContext(config));
         }
     }
 }

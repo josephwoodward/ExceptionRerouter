@@ -15,7 +15,7 @@ namespace ExceptionRerouter.Core
                 throw new NullReferenceException("registry");
             }
 
-            if (RegisteredRoutes.Routes.Contains(registry))
+            if (RegisteredRoutes.Routes.Any(x => x.GetType() == registry.GetType()))
             {
                 return;
             }
@@ -27,6 +27,7 @@ namespace ExceptionRerouter.Core
 
         public static void HandleException(Exception getLastError)
         {
+
         }
     }
 }

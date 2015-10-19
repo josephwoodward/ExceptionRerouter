@@ -8,9 +8,18 @@ namespace ExceptionRerouter.Core
     {
         public Exception Exception { get; set; }
 
+        private readonly RerouteSettingContext ConfigurationContext;
+
+        public RerouteContext(RerouteSettingContext configurationContext)
+        {
+            ConfigurationContext = configurationContext;
+        }
+
         public RerouteAction RerouteTo<T>(Expression<Action<T>> controller) where T : Controller
         {
-            return new RerouteAction();
+            ConfigurationContext.SetController(controller);
+
+            return new RerouteAction(ConfigurationContext);
         }
     }
 }

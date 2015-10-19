@@ -13,7 +13,7 @@ namespace ExceptionRerouter.Core
         {
             if (registry == null)
             {
-                throw new ArgumentNullException("registry");
+                throw new ArgumentNullException(nameof(registry));
             }
 
             RegisteredRoutes.Add(registry);
