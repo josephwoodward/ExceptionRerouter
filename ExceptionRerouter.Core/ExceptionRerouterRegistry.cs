@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ExceptionRerouter.Core
 {
     public abstract class ExceptionRerouterRegistry
     {
-        protected ExceptionRerouterRule OnException<T>()
+        private IList<object> RegisteredExceptions { get; } = new List<object>();
+
+        protected ExceptionRerouterRule OnException<T>() where T: Exception
         {
+            RegisteredExceptions.Add(typeof(T));
+
             return new ExceptionRerouterRule();
         }
     }

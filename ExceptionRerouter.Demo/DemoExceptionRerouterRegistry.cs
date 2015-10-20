@@ -7,7 +7,7 @@ namespace ExceptionRerouter.Demo
 {
     public class DemoExceptionRerouterRegistry : ExceptionRerouterRegistry
     {
-        public DemoExceptionRerouterRegistry()
+        public DemoExceptionRerouterRegistry() : base()
         {
             OnException<ProductNotFoundException>().RedirectTo(ProductNotFound);
         }

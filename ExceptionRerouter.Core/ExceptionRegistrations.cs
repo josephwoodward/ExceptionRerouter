@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ExceptionRerouter.Core
 {
-    public class ExceptionRoutes
+    public class ExceptionRegistrations
     {
         internal static readonly IList<ExceptionRerouterRegistry> RegisteredRoutes = new List<ExceptionRerouterRegistry>();
 

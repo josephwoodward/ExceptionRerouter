@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExceptionRoutes.cs" />
+    <Compile Include="ExceptionRegistrations.cs" />
     <Compile Include="RerouteContext.cs" />
     <Compile Include="ExceptionRerouter.cs" />
     <Compile Include="ExceptionRerouterRule.cs" />
