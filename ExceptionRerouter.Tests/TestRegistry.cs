@@ -1,6 +1,8 @@
-﻿namespace ExceptionRerouter.Tests
+﻿using ExceptionRerouter.Core.Registry;
+
+namespace ExceptionRerouter.Tests
 {
-    public class TestRegistry : Core.ExceptionRerouterRegistry
+    public class TestRegistry : ExceptionRerouterRegistry
     {
     }
 }

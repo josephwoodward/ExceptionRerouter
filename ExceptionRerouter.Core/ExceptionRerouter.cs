@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ExceptionRerouter.Core.Registry;
+using ExceptionRerouter.Core.Store;
 
 namespace ExceptionRerouter.Core
 {
@@ -10,7 +12,7 @@ namespace ExceptionRerouter.Core
         private static readonly ExceptionRegistrations RegisteredRegistrations = new ExceptionRegistrations();
 
         // Public collection of registrys
-        public static IEnumerable<ExceptionRerouterRegistry> Routes => RegisteredRegistrations.Routes;
+        public static IEnumerable<ExceptionRerouterRegistry> Routes = RegisteredRegistrations.Routes;
 
         // Register
         public static void Register(ExceptionRerouterRegistry registry)
