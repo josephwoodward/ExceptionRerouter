@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll</HintPath>
@@ -46,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExceptionContext.cs" />
+    <Compile Include="RequestContext\IRequestContext.cs" />
+    <Compile Include="RequestContext\RequestContext.cs" />
     <Compile Include="Store\ExceptionRegistrations.cs" />
     <Compile Include="RerouteContext.cs" />
     <Compile Include="ExceptionRerouter.cs" />

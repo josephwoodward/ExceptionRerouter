@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ExceptionRerouter.Core.Store
 {
@@ -12,17 +13,26 @@ namespace ExceptionRerouter.Core.Store
 
         public IEnumerable<ExceptionContext> Exceptions = RegisteredExceptions;
 
-        public void Add<T>(T exceptionType)
+        public void Add(Type exceptionType)
         {
             if (exceptionType == null)
             {
                 throw new ArgumentNullException(nameof(exceptionType));
             }
 
-            var exception = new ExceptionContext(typeof(T));
+            string fullName = exceptionType.AssemblyQualifiedName;
+
+            var exception = new ExceptionContext(exceptionType)
+            {
+                FullName = exceptionType.FullName,
+                AssemblyQualifiedName = fullName
+            };
 
             //TODO: Check to see if it's unique
-            RegisteredExceptions.Add(exception);
+            if (RegisteredExceptions.All(x => x.AssemblyQualifiedName != fullName))
+            {
+                RegisteredExceptions.Add(exception);
+            }
         }
     }
 }

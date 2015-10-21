@@ -10,5 +10,9 @@ namespace ExceptionRerouter.Core
         }
 
         public Type ExceptionType { get; set; }
+
+        public string FullName { get; set; }
+
+        public string AssemblyQualifiedName { get; set; }
     }
 }

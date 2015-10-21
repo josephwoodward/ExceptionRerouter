@@ -11,7 +11,7 @@ namespace ExceptionRerouter.Core
 
         public void SetController<T>(Expression<Action<T>> controller) where T : Controller
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

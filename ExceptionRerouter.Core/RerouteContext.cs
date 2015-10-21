@@ -6,8 +6,6 @@ namespace ExceptionRerouter.Core
 {
     public class RerouteContext
     {
-        public Exception Exception { get; set; }
-
         private readonly RerouteSettingContext ConfigurationContext;
 
         public RerouteContext(RerouteSettingContext configurationContext)

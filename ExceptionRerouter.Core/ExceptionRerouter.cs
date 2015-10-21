@@ -33,6 +33,13 @@ namespace ExceptionRerouter.Core
         // Handle
         public static void HandleException(Exception getLastError)
         {
+            // Need to flesh out
+            Type exceptionType = getLastError.GetType();
+            ExceptionContext context = ExceptionTypes.RegisteredExceptions.FirstOrDefault(x => x.ExceptionType == exceptionType);
+            if (context != null)
+            {
+                // Execute delegate to redirect
+            }
         }
     }
 }

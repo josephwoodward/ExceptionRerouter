@@ -6,6 +6,7 @@ namespace ExceptionRerouter.Core
     {
         public void RedirectTo(Action action)
         {
+
         }
 
         public void RedirectTo(Func<RerouteContext, RouteExecute> action)
