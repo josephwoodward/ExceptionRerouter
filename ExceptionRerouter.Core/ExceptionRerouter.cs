@@ -38,7 +38,7 @@ namespace ExceptionRerouter.Core
             ExceptionContext context = ExceptionTypes.RegisteredExceptions.FirstOrDefault(x => x.ExceptionType == exceptionType);
             if (context != null)
             {
-                // Execute delegate to redirect
+                // Execute redirect
             }
         }
     }
