@@ -11,7 +11,7 @@ namespace ExceptionRerouter.Tests
         [SetUp]
         public void TestSetup()
         {
-            Core.ExceptionRerouter.ClearRoutes();
+            Core.ExceptionRerouter.Reset();
             TestRegistration = new Mock<EmptyTestRegistry>();
         }
 

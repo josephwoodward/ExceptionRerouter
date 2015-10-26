@@ -26,7 +26,7 @@ namespace ExceptionRerouter.Tests
         [Test]
         public void ShouldNotRegisterDuplicates()
         {
-            Core.ExceptionRerouter.ClearRoutes();
+            Core.ExceptionRerouter.Reset();
 
             Core.ExceptionRerouter.Register(new EmptyTestRegistry());
             Core.ExceptionRerouter.Register(new EmptyTestRegistry());
@@ -45,7 +45,7 @@ namespace ExceptionRerouter.Tests
         public void ShouldClearExistingRoutes()
         {
             Core.ExceptionRerouter.Register(new FullTestRegistry());
-            Core.ExceptionRerouter.ClearRoutes();
+            Core.ExceptionRerouter.Reset();
         }
     }
 }

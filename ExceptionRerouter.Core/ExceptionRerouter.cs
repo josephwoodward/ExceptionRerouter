@@ -13,7 +13,7 @@ namespace ExceptionRerouter.Core
         // Public collection of registrys
         public static IEnumerable<ExceptionRerouterRegistry> Routes = ExceptionRegistrations.Routes;
 
-        public static void ClearRoutes()
+        public static void Reset()
         {
             ExceptionRegistrations.Clear();
         }
