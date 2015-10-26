@@ -6,12 +6,13 @@ namespace ExceptionRerouter.Tests
     [TestFixture]
     public class BaseTest
     {
-        protected Mock<TestRegistry> TestRegistration { get; set; }
+        protected Mock<EmptyTestRegistry> TestRegistration { get; set; }
 
         [SetUp]
         public void TestSetup()
         {
-            TestRegistration = new Mock<TestRegistry>();
+            Core.ExceptionRerouter.ClearRoutes();
+            TestRegistration = new Mock<EmptyTestRegistry>();
         }
 
         public void TestTearDown()

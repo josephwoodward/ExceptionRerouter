@@ -7,13 +7,13 @@ namespace ExceptionRerouter.Core.Store
     /// <summary>
     /// Store for all exceptions registered
     /// </summary>
-    public class ExceptionTypes
+    public static class ExceptionTypes
     {
         internal static readonly IList<ExceptionContext> RegisteredExceptions = new List<ExceptionContext>();
 
-        public IEnumerable<ExceptionContext> Exceptions = RegisteredExceptions;
+        public static IEnumerable<ExceptionContext> Exceptions = RegisteredExceptions;
 
-        public void Add(Type exceptionType)
+        public static void Add(Type exceptionType)
         {
             if (exceptionType == null)
             {

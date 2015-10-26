@@ -7,13 +7,13 @@ namespace ExceptionRerouter.Core.Store
     /// <summary>
     /// Store for all registrations
     /// </summary>
-    public class ExceptionRegistrations
+    public static class ExceptionRegistrations
     {
         internal static readonly IList<ExceptionRerouterRegistry> RegisteredRoutes = new List<ExceptionRerouterRegistry>();
 
-        public IEnumerable<ExceptionRerouterRegistry> Routes = RegisteredRoutes;
+        public static IEnumerable<ExceptionRerouterRegistry> Routes = RegisteredRoutes;
 
-        public void Add(ExceptionRerouterRegistry registry)
+        public static void Add(ExceptionRerouterRegistry registry)
         {
             if (registry == null)
             {
@@ -23,7 +23,7 @@ namespace ExceptionRerouter.Core.Store
             RegisteredRoutes.Add(registry);
         }
 
-        public void Clear()
+        public static void Clear()
         {
             RegisteredRoutes.Clear();
         }

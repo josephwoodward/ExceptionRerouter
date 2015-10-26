@@ -30,7 +30,7 @@ namespace ExceptionRerouter.Core
         
         public RerouteAction RerouteTo(string actionName, string controllerName, RouteValueDictionary routeValues)
         {
-            if (routeValues == null) routeValues = (RouteValueDictionary) Enumerable.Empty<KeyValuePair<string, object>>();
+            if (routeValues == null) routeValues = new RouteValueDictionary();
 
             return this.SetRerouteProperties(actionName, controllerName, routeValues);
         }

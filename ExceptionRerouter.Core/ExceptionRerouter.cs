@@ -9,10 +9,14 @@ namespace ExceptionRerouter.Core
     public class ExceptionRerouter
     {
         // Routes encapsulated collection
-        private static readonly ExceptionRegistrations RegisteredRegistrations = new ExceptionRegistrations();
 
         // Public collection of registrys
-        public static IEnumerable<ExceptionRerouterRegistry> Routes = RegisteredRegistrations.Routes;
+        public static IEnumerable<ExceptionRerouterRegistry> Routes = ExceptionRegistrations.Routes;
+
+        public static void ClearRoutes()
+        {
+            ExceptionRegistrations.Clear();
+        }
 
         // Register
         public static void Register(ExceptionRerouterRegistry registry)
@@ -22,12 +26,12 @@ namespace ExceptionRerouter.Core
                 throw new NullReferenceException("registry");
             }
 
-            if (RegisteredRegistrations.Routes.Any(x => x.GetType() == registry.GetType()))
+            if (ExceptionRegistrations.Routes.Any(x => x.GetType() == registry.GetType()))
             {
                 return;
             }
 
-            RegisteredRegistrations.Add(registry);
+            ExceptionRegistrations.Add(registry);
         }
 
         // Handle
