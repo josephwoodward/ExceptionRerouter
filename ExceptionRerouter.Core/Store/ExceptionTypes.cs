@@ -13,7 +13,7 @@ namespace ExceptionRerouter.Core.Store
 
         public static IEnumerable<ExceptionContext> Exceptions = RegisteredExceptions;
 
-        public static void Add(Type exceptionType)
+        public static void Add(Type exceptionType, Func<RerouteContext, RouteExecute> action)
         {
             if (exceptionType == null)
             {

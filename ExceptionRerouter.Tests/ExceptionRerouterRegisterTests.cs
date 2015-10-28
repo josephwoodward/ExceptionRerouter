@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using ExceptionRerouter.Core.Store;
 using Shouldly;
 using NUnit.Framework;
@@ -20,7 +19,7 @@ namespace ExceptionRerouter.Tests
             Core.ExceptionRerouter.Register(new EmptyTestRegistry());
             var res = Core.ExceptionRerouter.Routes;
 
-            res.Count().ShouldBe(1);
+            res.Count.ShouldBe(1);
         }
 
         [Test]
@@ -31,7 +30,7 @@ namespace ExceptionRerouter.Tests
             Core.ExceptionRerouter.Register(new EmptyTestRegistry());
             Core.ExceptionRerouter.Register(new EmptyTestRegistry());
 
-            Core.ExceptionRerouter.Routes.Count().ShouldBe(1);
+            Core.ExceptionRerouter.Routes.Count.ShouldBe(1);
         }
 
         [Test]
@@ -46,6 +45,7 @@ namespace ExceptionRerouter.Tests
         {
             Core.ExceptionRerouter.Register(new FullTestRegistry());
             Core.ExceptionRerouter.Reset();
+            Core.ExceptionRerouter.Routes.Count.ShouldBe(0);
         }
     }
 }

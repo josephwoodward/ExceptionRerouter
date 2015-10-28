@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Net;
-using System.Web.Mvc;
+﻿using System.Net;
 using System.Web.Routing;
 
 namespace ExceptionRerouter.Core
@@ -15,9 +12,5 @@ namespace ExceptionRerouter.Core
         public string ActionName { get; set; }
 
         public RouteValueDictionary RouteValues { get; set; }
-
-        public void SetController<T>(Expression<Action<T>> controller) where T : Controller
-        {
-        }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Routing;
 
 namespace ExceptionRerouter.Core
@@ -14,20 +12,11 @@ namespace ExceptionRerouter.Core
             ConfigurationContext = configurationContext;
         }
 
-        /*
-        // Coming soon
-        public RerouteAction RerouteTo<T>(Expression<Action<T>> controller) where T : Controller
-        {
-            ConfigurationContext.SetController(controller);
-
-            return new RerouteAction(ConfigurationContext);
-        }*/
-
         public RerouteAction RerouteTo(string actionName, string controllerName)
         {
             return this.RerouteTo(actionName, controllerName, null);
         }
-        
+
         public RerouteAction RerouteTo(string actionName, string controllerName, RouteValueDictionary routeValues)
         {
             if (routeValues == null) routeValues = new RouteValueDictionary();

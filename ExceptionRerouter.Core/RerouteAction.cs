@@ -25,9 +25,11 @@ namespace ExceptionRerouter.Core
 
     public class RouteExecute
     {
+        public RerouteSettingContext Configuration { get; set; }
+
         public RouteExecute(RerouteSettingContext configuration)
         {
-            
+            this.Configuration = configuration;
         }
     }
 }

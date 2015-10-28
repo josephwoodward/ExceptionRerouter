@@ -16,9 +16,7 @@ namespace ExceptionRerouter.Core.Store
         public static void Add(ExceptionRerouterRegistry registry)
         {
             if (registry == null)
-            {
                 throw new ArgumentNullException(nameof(registry));
-            }
 
             RegisteredRoutes.Add(registry);
         }

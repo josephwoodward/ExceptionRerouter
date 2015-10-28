@@ -11,10 +11,9 @@ namespace ExceptionRerouter.Core.Registry
         protected ExceptionRerouterRule OnException<T>() where T : Exception
         {
             // Register the exception that we can start adding the action configurations to
-            Type t = typeof(T);
-            ExceptionTypes.Add(t);
 
-            return new ExceptionRerouterRule();
+
+            return new ExceptionRerouterRule(typeof(T));
         }
     }
 
