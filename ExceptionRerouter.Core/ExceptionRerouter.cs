@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using ExceptionRerouter.Core.Registry;
 using ExceptionRerouter.Core.Store;
 
@@ -29,7 +30,7 @@ namespace ExceptionRerouter.Core
         }
 
         // Handle
-        public static void HandleException(Exception exception)
+        public static void HandleException(MvcApplication exception)
         {
             // Need to flesh out
             Type exceptionType = exception.GetType();

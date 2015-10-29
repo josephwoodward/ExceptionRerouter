@@ -17,7 +17,7 @@ namespace ExceptionRerouter.Demo
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Core.ExceptionRerouter.HandleException(Server);
+            Core.ExceptionRerouter.HandleException(this);
             /*
                         var routeData = new RouteData();
                         routeData.Values["action"] = "Index";
