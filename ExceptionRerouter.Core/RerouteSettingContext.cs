@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Web.Routing;
 
 namespace ExceptionRerouter.Core
@@ -12,5 +13,7 @@ namespace ExceptionRerouter.Core
         public string ActionName { get; set; }
 
         public RouteValueDictionary RouteValues { get; set; }
+
+        public Type ExceptionType { get; set; }
     }
 }

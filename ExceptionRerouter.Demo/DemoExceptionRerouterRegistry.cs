@@ -12,10 +12,9 @@ namespace ExceptionRerouter.Demo
             OnException<ProductNotFoundException>().RedirectTo(ProductNotFound);
         }
 
-        private static RouteExecute ProductNotFound(RerouteContext context)
+        private static RerouteSettingContext ProductNotFound(RerouteContext context)
         {
-            RerouteAction rerouteAction = context.RerouteTo("Index", "ProductNotFound");
-            return rerouteAction.WithStatusCode(HttpStatusCode.NotFound);
+            return context.RerouteTo("Index", "ProductNotFound").WithStatusCode(HttpStatusCode.NotFound);
         }
     }
 }

@@ -6,10 +6,12 @@ namespace ExceptionRerouter.Core
     public class RerouteContext
     {
         private readonly RerouteSettingContext ConfigurationContext;
+        public readonly Type ExceptionType;
 
         public RerouteContext(RerouteSettingContext configurationContext)
         {
             ConfigurationContext = configurationContext;
+            ExceptionType = configurationContext.ExceptionType;
         }
 
         public RerouteAction RerouteTo(string actionName, string controllerName)
@@ -26,8 +28,10 @@ namespace ExceptionRerouter.Core
 
         private RerouteAction SetRerouteProperties(string actionName, string controllerName, RouteValueDictionary routeValues)
         {
-            if (string.IsNullOrEmpty(actionName)) throw new ArgumentNullException(nameof(actionName));
-            if (string.IsNullOrEmpty(controllerName)) throw new ArgumentNullException(nameof(controllerName));
+            if (string.IsNullOrEmpty(actionName)) 
+                throw new ArgumentNullException(nameof(actionName));
+            if (string.IsNullOrEmpty(controllerName)) 
+                throw new ArgumentNullException(nameof(controllerName));
 
             ConfigurationContext.ControllerName = controllerName;
             ConfigurationContext.ActionName = actionName;

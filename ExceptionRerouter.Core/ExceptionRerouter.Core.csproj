@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExceptionContext.cs" />
+    <Compile Include="ExceptionHandler.cs" />
     <Compile Include="RequestContext\IRequestContext.cs" />
     <Compile Include="RequestContext\RequestContext.cs" />
     <Compile Include="Store\ExceptionRegistrations.cs" />

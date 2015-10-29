@@ -11,25 +11,23 @@ namespace ExceptionRerouter.Core.Store
     {
         internal static readonly IList<ExceptionContext> RegisteredExceptions = new List<ExceptionContext>();
 
-        public static IEnumerable<ExceptionContext> Exceptions = RegisteredExceptions;
+        public static IReadOnlyCollection<ExceptionContext> Exceptions = (IReadOnlyCollection<ExceptionContext>) RegisteredExceptions;
 
-        public static void Add(Type exceptionType, Func<RerouteContext, RouteExecute> action)
+        public static void Add(Type exceptionType, RerouteSettingContext rerouteConfiguration)
         {
             if (exceptionType == null)
-            {
                 throw new ArgumentNullException(nameof(exceptionType));
-            }
+            if (rerouteConfiguration == null)
+                throw new ArgumentNullException(nameof(rerouteConfiguration));
 
-            string fullName = exceptionType.AssemblyQualifiedName;
-
-            var exception = new ExceptionContext(exceptionType)
+            var exception = new ExceptionContext(exceptionType, rerouteConfiguration)
             {
                 FullName = exceptionType.FullName,
-                AssemblyQualifiedName = fullName
+                AssemblyQualifiedName = exceptionType.AssemblyQualifiedName
             };
 
             //TODO: Check to see if it's unique
-            if (RegisteredExceptions.All(x => x.AssemblyQualifiedName != fullName))
+            if (RegisteredExceptions.All(x => x.AssemblyQualifiedName != exception.AssemblyQualifiedName))
             {
                 RegisteredExceptions.Add(exception);
             }

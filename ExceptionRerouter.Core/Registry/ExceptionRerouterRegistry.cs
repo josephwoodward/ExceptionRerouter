@@ -1,5 +1,4 @@
 ﻿using System;
-using ExceptionRerouter.Core.Store;
 
 namespace ExceptionRerouter.Core.Registry
 {
@@ -10,9 +9,6 @@ namespace ExceptionRerouter.Core.Registry
     {
         protected ExceptionRerouterRule OnException<T>() where T : Exception
         {
-            // Register the exception that we can start adding the action configurations to
-
-
             return new ExceptionRerouterRule(typeof(T));
         }
     }
@@ -22,6 +18,6 @@ namespace ExceptionRerouter.Core.Registry
     /// </summary>
     public abstract class ExceptionRerouterRegistry<T> where T : Exception
     {
-        public abstract RouteExecute OnException(RerouteContext context);
+        public abstract ExceptionRerouterRule OnException(RerouteContext context);
     }
 }

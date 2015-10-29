@@ -29,14 +29,15 @@ namespace ExceptionRerouter.Core
         }
 
         // Handle
-        public static void HandleException(Exception getLastError)
+        public static void HandleException(Exception exception)
         {
             // Need to flesh out
-            Type exceptionType = getLastError.GetType();
+            Type exceptionType = exception.GetType();
             ExceptionContext context = ExceptionTypes.RegisteredExceptions.FirstOrDefault(x => x.ExceptionType == exceptionType);
             if (context != null)
             {
-                // Execute redirect
+                var handler = new ExceptionHandler(context);
+                handler.Handle(exception);
             }
         }
     }
