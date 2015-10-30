@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace ExceptionRerouter.Core
@@ -15,5 +16,7 @@ namespace ExceptionRerouter.Core
         public RouteValueDictionary RouteValues { get; set; }
 
         public Type ExceptionType { get; set; }
+
+        public Type ControllerType { get; set; }
     }
 }

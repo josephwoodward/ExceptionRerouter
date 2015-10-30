@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using ExceptionRerouter.Core.Registry;
+using ExceptionRerouter.Demo.Controllers;
 using ExceptionRerouter.Demo.Exceptions;
 
 namespace ExceptionRerouter.Tests
@@ -8,7 +9,7 @@ namespace ExceptionRerouter.Tests
     {
         public FullTestRegistry()
         {
-            OnException<PageNotFoundException>().RedirectTo(context => context.RerouteTo("Index", "ProductNotFound").WithStatusCode(HttpStatusCode.NotFound));
+            OnException<PageNotFoundException>().RedirectTo(context => context.RerouteTo("Index", typeof(ProductNotFoundController)).WithStatusCode(HttpStatusCode.NotFound));
         }
     }
 }

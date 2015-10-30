@@ -30,15 +30,15 @@ namespace ExceptionRerouter.Core
         }
 
         // Handle
-        public static void HandleException(MvcApplication exception)
+        public static void HandleException(HttpApplication application)
         {
             // Need to flesh out
-            Type exceptionType = exception.GetType();
-            ExceptionContext context = ExceptionTypes.RegisteredExceptions.FirstOrDefault(x => x.ExceptionType == exceptionType);
+            Exception exception = application.Server.GetLastError();
+            ExceptionContext context = ExceptionTypes.RegisteredExceptions.FirstOrDefault(x => x.ExceptionType == exception.GetType());
             if (context != null)
             {
                 var handler = new ExceptionHandler(context);
-                handler.Handle(exception);
+                handler.HandleException(exception);
             }
         }
     }
