@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Routing;
 using ExceptionRerouter.Core.Registry;
 using ExceptionRerouter.Core.Store;
 
@@ -37,7 +38,10 @@ namespace ExceptionRerouter.Core
             ExceptionContext context = ExceptionTypes.RegisteredExceptions.FirstOrDefault(x => x.ExceptionType == exception.GetType());
             if (context != null)
             {
-                var handler = new ExceptionHandler(context);
+                application.Response.Clear();
+                application.Server.ClearError();
+
+                var handler = new ExceptionHandler(context, application);
                 handler.HandleException(exception);
             }
         }
