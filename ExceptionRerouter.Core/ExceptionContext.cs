@@ -10,6 +10,8 @@ namespace ExceptionRerouter.Core
             ExceptionType = exception;
         }
 
+        public Action<Exception> MyExceptionHandler { get; set; }
+
         public Type ExceptionType { get; set; }
 
         public string FullName { get; set; }

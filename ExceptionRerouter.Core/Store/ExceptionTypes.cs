@@ -23,7 +23,8 @@ namespace ExceptionRerouter.Core.Store
             var exception = new ExceptionContext(exceptionType, rerouteConfiguration)
             {
                 FullName = exceptionType.FullName,
-                AssemblyQualifiedName = exceptionType.AssemblyQualifiedName
+                AssemblyQualifiedName = exceptionType.AssemblyQualifiedName,
+                MyExceptionHandler = rerouteConfiguration.ExceptionHandler
             };
 
             //TODO: Check to see if it's unique

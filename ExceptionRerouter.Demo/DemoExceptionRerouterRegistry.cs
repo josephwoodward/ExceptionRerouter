@@ -11,11 +11,24 @@ namespace ExceptionRerouter.Demo
         public DemoExceptionRerouterRegistry()
         {
             OnException<ProductNotFoundException>().RedirectTo(ProductNotFound);
+            OnException<PageNotFoundException>().RedirectTo(PageNotFound);
         }
 
         private static RerouteSettingContext ProductNotFound(RerouteContext context)
         {
-            /*return context.RerouteTo("Index", "ProductNotFound").WithStatusCode(HttpStatusCode.NotFound);*/
+            context.SetException((exception) =>
+            {
+                if (exception is ProductNotFoundException)
+                {
+                    // further handling
+                }
+            });
+
+            return context.RerouteTo("Index", typeof(ProductNotFoundController)).WithStatusCode(HttpStatusCode.NotFound);
+        }
+
+        private static RerouteSettingContext PageNotFound(RerouteContext context)
+        {
             return context.RerouteTo("Index", typeof(PageNotFoundController)).WithStatusCode(HttpStatusCode.NotFound);
         }
     }

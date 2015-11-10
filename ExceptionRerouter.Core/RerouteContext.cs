@@ -14,6 +14,11 @@ namespace ExceptionRerouter.Core
             ExceptionType = configurationContext.ExceptionType;
         }
 
+        public void SetException(Action<Exception> exceptionAction)
+        {
+            ConfigurationContext.ExceptionHandler = exceptionAction;
+        }
+
         public RerouteAction RerouteTo(string actionName, Type controllerName)
         {
             return this.RerouteTo(actionName, controllerName, null);

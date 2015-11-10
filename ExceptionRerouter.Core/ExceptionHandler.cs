@@ -26,7 +26,8 @@ namespace ExceptionRerouter.Core
             Type controllerType = this.exceptionContext.ExecutionConfiguration.ControllerType;
             IController errorsController = (IController)Activator.CreateInstance(controllerType);
 
-            
+            if (exceptionContext.MyExceptionHandler != null)
+                exceptionContext.MyExceptionHandler(exception);
 
             var routeData = new RouteData();
             routeData.Values["action"] = exceptionContext.ExecutionConfiguration.ActionName;
