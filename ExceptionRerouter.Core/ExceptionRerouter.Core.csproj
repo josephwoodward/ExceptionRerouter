@@ -46,19 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExceptionContext.cs" />
-    <Compile Include="ExceptionHandler.cs" />
-    <Compile Include="RequestContext\IRequestContext.cs" />
-    <Compile Include="RequestContext\RequestContext.cs" />
-    <Compile Include="Store\ExceptionRegistrations.cs" />
-    <Compile Include="RerouteContext.cs" />
     <Compile Include="ExceptionRerouter.cs" />
-    <Compile Include="ExceptionRerouterRule.cs" />
+    <Compile Include="RegistryStore\ExceptionRegistrations.cs" />
     <Compile Include="Registry\ExceptionRerouterRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RerouteAction.cs" />
-    <Compile Include="RerouteSettingContext.cs" />
-    <Compile Include="Store\ExceptionTypes.cs" />
+    <Compile Include="Registry\ExceptionRerouteRule.cs" />
+    <Compile Include="Registry\IRerouteAction.cs" />
+    <Compile Include="Registry\RerouteAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

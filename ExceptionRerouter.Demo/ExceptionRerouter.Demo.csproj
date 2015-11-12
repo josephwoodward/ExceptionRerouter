@@ -103,7 +103,7 @@
     <Compile Include="Controllers\ProductNotFoundController.cs" />
     <Compile Include="Controllers\PageNotFoundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DemoExceptionRerouterRegistry.cs" />
+    <Compile Include="ProductNotFoundExceptionRegistry.cs" />
     <Compile Include="Exceptions\PageNotFoundException.cs" />
     <Compile Include="Exceptions\ProductNotFoundException.cs" />
     <Compile Include="Global.asax.cs">

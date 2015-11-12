@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using ExceptionRerouter.Core.Registry;
 
-namespace ExceptionRerouter.Core.Store
+namespace ExceptionRerouter.Core.RegistryStore
 {
-    /// <summary>
-    /// Store for all registrations
-    /// </summary>
     public static class ExceptionRegistrations
     {
-        internal static readonly IList<ExceptionRerouterRegistry> RegisteredRoutes = new List<ExceptionRerouterRegistry>();
-
-        public static IEnumerable<ExceptionRerouterRegistry> Routes = RegisteredRoutes;
 
         public static void Add(ExceptionRerouterRegistry registry)
         {
