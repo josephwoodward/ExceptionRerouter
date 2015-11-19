@@ -5,7 +5,7 @@ using ExceptionRerouter.Core.RegistryStore;
 
 namespace ExceptionRerouter.Core
 {
-    public class ExceptionRerouter<T> where T : Exception
+    public class ExceptionRerouter
     {
         public static void Reset()
         {
@@ -13,7 +13,7 @@ namespace ExceptionRerouter.Core
         }
 
         // Register
-        public static void Register(ExceptionRerouterRegistry<Exception> registry)
+        public static void Register<T>(ExceptionRerouterRegistry<T> registry) where T : Exception
         {
             if (registry == null)
                 throw new NullReferenceException(nameof(registry));

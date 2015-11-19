@@ -12,7 +12,7 @@ namespace ExceptionRerouter.Demo
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            Core.ExceptionRerouter.Register(new DemoExceptionRerouterRegistryOld());
+            Core.ExceptionRerouter.Register(new ProductNotFoundExceptionRegistry());
         }
 
         protected void Application_Error(object sender, EventArgs e)

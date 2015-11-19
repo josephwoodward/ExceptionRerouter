@@ -86,7 +86,6 @@
     <Compile Include="ExceptionRerouterRegisterTests.cs" />
     <Compile Include="FullTestRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EmptyTestRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
