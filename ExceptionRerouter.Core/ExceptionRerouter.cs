@@ -24,6 +24,15 @@ namespace ExceptionRerouter.Core
         // Handle
         public static void HandleException(HttpApplication application)
         {
+
+            Exception finalException;
+
+            Exception res = application.Server.GetLastError();
+            finalException = res.InnerException ?? res;
+
+
+
+            ExceptionRegistrations.Get(finalException);
         }
     }
 }
