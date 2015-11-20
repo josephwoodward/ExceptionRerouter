@@ -1,7 +1,7 @@
-# ExceptionRerouter
+# ExceptionRerouter - Work in progress
 A simple exception rerouting library for ASP.NET MVC.
 
-Example:
+**Usage Example:**
 
 **Global.asax.cs**
 ```csharp
