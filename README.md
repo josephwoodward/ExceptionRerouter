@@ -7,14 +7,14 @@ A simple global exception rerouting library for ASP.NET MVC.
 ```csharp
 public class DemoExceptionRerouterRegistry : ExceptionRerouterRegistry<ProductNotFoundException>
 {
-    public void OnException(object exception)
-    {
-        // Log exception details
-    }
-
     public ExceptionRerouterRule Reroute(IRerouteAction actions)
     {
         return actions.RedirectTo("Index", typeof(ProductNotFoundController)).WithStatusCode(HttpStatusCode.NotFound);
+    }
+    
+    public void OnException(object exception)
+    {
+        // Optional ability to perform other tasks on exception.
     }
 }
 ```
