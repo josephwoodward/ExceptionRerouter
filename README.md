@@ -1,5 +1,5 @@
 # ExceptionRerouter - Work in progress
-A simple exception rerouting library for ASP.NET MVC.
+A simple global exception rerouting library for ASP.NET MVC.
 
 **Usage Example:**
 
