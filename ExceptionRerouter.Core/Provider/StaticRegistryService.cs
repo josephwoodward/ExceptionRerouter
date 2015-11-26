@@ -52,7 +52,7 @@ namespace ExceptionRerouter.Core.Provider
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            Messages.Clear();
         }
     }
 }

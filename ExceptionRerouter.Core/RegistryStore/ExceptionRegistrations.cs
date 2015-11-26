@@ -14,10 +14,9 @@ namespace ExceptionRerouter.Core.RegistryStore
             if (registry == null)
                 throw new ArgumentNullException(nameof(registry));
 
-            var typeKey = typeof (T);
-            var registryItem = new ExceptionRegistryItem(registry, typeKey);
+            var typeKey = typeof(T);
+            var registryItem = new ExceptionRegistryItem(registry.GetType(), typeKey);
 
-            //_registrations.TryAdd(typeKey, registryItem);
             _provider.Push(typeKey, registryItem);
         }
 
@@ -29,7 +28,16 @@ namespace ExceptionRerouter.Core.RegistryStore
         {
             ExceptionRegistryItem res = _provider.GetExceptionRegistryItem(finalException.GetType());
 
-            object res2 = res.Registry;
+
+            /*var type = Type.GetType(res.Registry.AssemblyQualifiedName);
+            var myObject = (ExceptionRerouterRegistry<Exception>)Activator.CreateInstance(type);*/
+
+            var d1 = Type.GetType(res.Registry.AssemblyQualifiedName); // GenericTest was my namespace, add yours
+            Type[] typeArgs = { typeof(Item) };
+            var makeme = d1.MakeGenericType(typeArgs);
+            object o = Activator.CreateInstance(makeme);
+
+            //var res2 = Activator.CreateInstance(typeof(T));
         }
     }
 }
